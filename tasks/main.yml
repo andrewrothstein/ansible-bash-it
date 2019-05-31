@@ -1,0 +1,15 @@
+---
+- name: look for bash-it install
+  stat:
+    path: '{{ bash_it_install_dir }}'
+  changed_when: false
+  register: bash_it_bin_dir
+- when: not bash_it_bin_dir.stat.exists
+  block:
+    - name: checkout bash-it
+      git:
+        repo: 'https://github.com/Bash-it/bash-it.git'
+        dest: '{{ bash_it_install_dir }}'
+        depth: 1
+    - name: run installer
+      command: '{{ bash_it_install_dir }}/install.sh {{ bash_it_install_args }}'

@@ -1,0 +1,3 @@
+---
+# defaults file for bash-it
+bash_it_install_args: --silent
