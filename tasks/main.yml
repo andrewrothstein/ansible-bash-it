@@ -11,5 +11,6 @@
         repo: 'https://github.com/Bash-it/bash-it.git'
         dest: '{{ bash_it_install_dir }}'
         depth: 1
+        version: master
     - name: run installer
       command: '{{ bash_it_install_dir }}/install.sh {{ bash_it_install_args }}'
